@@ -24,7 +24,7 @@ class ServiceFactory extends Factory
             'name' => $this->faker->word(),
             'description' => $this->faker->text(),
             'approximate_duration_min' => $this->faker->numberBetween(0, 120),
-            'price' => $this->faker->randomFloat(0, 0, 9999999999.),
+            'price' => $this->faker->randomFloat(2, 0, 500),
         ];
     }
 }

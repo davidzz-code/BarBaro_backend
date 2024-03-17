@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->longText('description')->nullable();
-            $table->string('approximate_duration_min')->nullable();
+            $table->integer('approximate_duration_min')->nullable();
             $table->decimal('price');
             $table->timestamps();
         });
