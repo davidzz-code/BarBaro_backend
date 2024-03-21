@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Api\AppointmentsController;
+use App\Http\Controllers\Api\ServiceController;
+use App\Http\Controllers\Api\WorkerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,3 +21,5 @@ Route::get('/', function () {
 });
 
 Route::apiResource('appointments', AppointmentsController::class);
+Route::apiResource('workers', WorkerController::class);
+Route::apiResource('services', ServiceController::class);
