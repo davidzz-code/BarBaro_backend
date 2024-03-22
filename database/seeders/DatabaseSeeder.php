@@ -7,8 +7,6 @@ namespace Database\Seeders;
 use App\Models\Appointment;
 use App\Models\Schedule;
 use App\Models\Service;
-use App\Models\User;
-use App\Models\Worker;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder

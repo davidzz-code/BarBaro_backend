@@ -21,7 +21,7 @@ class AppointmentFactory extends Factory
      */
     public function definition(): array
     {
-        $status = ['reserved', 'in progress', 'cancelled', 'completed', 'no show'];
+        $status = ['reserved', 'paid', 'cancelled', 'not presented'];
 
         return [
             'status' => $this->faker->randomElement($status),
