@@ -18,11 +18,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory(3)->create();
-        Worker::factory(3)->create();
+        $this->call([
+            UserSeeder::class,
+            WorkerSeeder::class,
+        ]);
+
         Service::factory(3)->create();
         Schedule::factory(3)->create();
         Appointment::factory(3)->create();
-
     }
 }

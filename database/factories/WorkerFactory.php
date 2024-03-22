@@ -20,8 +20,10 @@ class WorkerFactory extends Factory
      */
     public function definition(): array
     {
+        // $roles = ['worker', 'admin'];
+
         return [
-            'role' => $this->faker->word(),
+            'role' => 'worker',
             'hours' => $this->faker->numberBetween(20, 40),
         ];
     }
