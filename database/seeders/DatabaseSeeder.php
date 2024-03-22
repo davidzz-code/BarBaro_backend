@@ -7,8 +7,6 @@ namespace Database\Seeders;
 use App\Models\Appointment;
 use App\Models\Schedule;
 use App\Models\Service;
-use App\Models\User;
-use App\Models\Worker;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -18,11 +16,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory(3)->create();
-        Worker::factory(3)->create();
+        $this->call([
+            UserSeeder::class,
+            WorkerSeeder::class,
+        ]);
+
         Service::factory(3)->create();
         Schedule::factory(3)->create();
         Appointment::factory(3)->create();
-
     }
 }

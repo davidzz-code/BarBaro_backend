@@ -21,7 +21,7 @@ class WorkerFactory extends Factory
     public function definition(): array
     {
         return [
-            'role' => $this->faker->word(),
+            'role' => 'worker',
             'hours' => $this->faker->numberBetween(20, 40),
         ];
     }

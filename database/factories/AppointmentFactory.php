@@ -3,7 +3,6 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 use App\Models\Appointment;
 use App\Models\User;
 use App\Models\Worker;
@@ -22,8 +21,10 @@ class AppointmentFactory extends Factory
      */
     public function definition(): array
     {
+        $status = ['reserved', 'paid', 'cancelled', 'not presented'];
+
         return [
-            'status' => $this->faker->word(),
+            'status' => $this->faker->randomElement($status),
             'date' => $this->faker->date(),
             'start_time' => $this->faker->time(),
             'end_time' => $this->faker->time(),
