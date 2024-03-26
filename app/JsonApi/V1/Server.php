@@ -2,8 +2,11 @@
 
 namespace App\JsonApi\V1;
 
+use App\JsonApi\V1\Appointments\AppointmentSchema;
 use App\JsonApi\V1\Schedules\ScheduleSchema;
+use App\JsonApi\V1\Services\ServiceSchema;
 use App\JsonApi\V1\Users\UserSchema;
+use App\JsonApi\V1\Workers\WorkerSchema;
 use LaravelJsonApi\Core\Server\Server as BaseServer;
 
 class Server extends BaseServer
@@ -36,6 +39,9 @@ class Server extends BaseServer
         return [
             UserSchema::class,
             ScheduleSchema::class,
+            AppointmentSchema::class,
+            ServiceSchema::class,
+            WorkerSchema::class,
         ];
     }
 }

@@ -2,10 +2,10 @@
 
 namespace App\Policies;
 
-use App\Models\Schedule;
+use App\Models\Service;
 use App\Models\User;
 
-class SchedulePolicy
+class ServicePolicy
 {
     /**
      * Determine whether the user can view any models.
@@ -20,7 +20,7 @@ class SchedulePolicy
      * Determine whether the user can view the model.
      * @param  \App\Models\User|null  $user
      */
-    public function view(?User $user, Schedule $schedule): bool
+    public function view(?User $user, Service $service): bool
     {
         // return $user;
         return true;
@@ -31,39 +31,39 @@ class SchedulePolicy
      */
     public function create(User $user)
     {
-        // return $user && Worker::find($user->worker_id)->role === 'admin';
+
         return true;
     }
 
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, Schedule $schedule)
+    public function update(User $user, Service $service)
     {
-        // return $user && Worker::find($user->worker_id)->role === 'admin';
+        //
     }
 
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, Schedule $schedule)
+    public function delete(User $user, Service $service)
     {
-        // return $user && Worker::find($user->worker_id)->role === 'admin';
+        //
     }
 
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, Schedule $schedule)
+    public function restore(User $user, Service $service)
     {
-        // return $user && Worker::find($user->worker_id)->role === 'admin';
+        //
     }
 
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, Schedule $schedule)
+    public function forceDelete(User $user, Service $service)
     {
-        // return $user && Worker::find($user->worker_id)->role === 'admin';
+        //
     }
 }

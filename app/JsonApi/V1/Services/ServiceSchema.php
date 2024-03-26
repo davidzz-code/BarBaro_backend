@@ -1,18 +1,19 @@
 <?php
 
-namespace App\JsonApi\V1\Schedules;
+namespace App\JsonApi\V1\Services;
 
-use App\Models\Schedule;
+use App\Models\Service;
 use LaravelJsonApi\Eloquent\Contracts\Paginator;
 use LaravelJsonApi\Eloquent\Fields\DateTime;
 use LaravelJsonApi\Eloquent\Fields\ID;
-use LaravelJsonApi\Eloquent\Fields\Relations\BelongsTo;
+use LaravelJsonApi\Eloquent\Fields\Number;
 use LaravelJsonApi\Eloquent\Fields\Relations\BelongsToMany;
 use LaravelJsonApi\Eloquent\Filters\WhereIdIn;
 use LaravelJsonApi\Eloquent\Pagination\PagePagination;
 use LaravelJsonApi\Eloquent\Schema;
+use LaravelJsonApi\Eloquent\Fields\Str;
 
-class ScheduleSchema extends Schema
+class ServiceSchema extends Schema
 {
 
     /**
@@ -20,7 +21,7 @@ class ScheduleSchema extends Schema
      *
      * @var string
      */
-    public static string $model = Schedule::class;
+    public static string $model = Service::class;
 
     /**
      * Get the resource fields.
@@ -31,8 +32,11 @@ class ScheduleSchema extends Schema
     {
         return [
             ID::make(),
-            BelongsToMany::make('manager')->type('workers'),
-            DateTime::make('date')->sortable(),
+            Str::make('name'),
+            Str::make('description'),
+            Number::make('aproximatedTimeInMin'),
+            Number::make('price'),
+            BelongsToMany::make('appointments')->type('appointments'),
             DateTime::make('createdAt')->readOnly(),
             DateTime::make('updatedAt')->readOnly(),
         ];
@@ -59,4 +63,5 @@ class ScheduleSchema extends Schema
     {
         return PagePagination::make();
     }
+
 }

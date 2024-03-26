@@ -7,7 +7,9 @@ namespace Database\Seeders;
 use App\Models\Appointment;
 use App\Models\Schedule;
 use App\Models\Service;
+use App\Models\Worker;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -24,5 +26,17 @@ class DatabaseSeeder extends Seeder
         Service::factory(3)->create();
         Schedule::factory(3)->create();
         Appointment::factory(3)->create();
+
+        // for ($i=0; $i < 5; $i++) {
+        //     DB::table('appointment_service')->insert([
+        //         'appointment_id' => Appointment::all()->random()->id,
+        //         'service_id' => Service::all()->random()->id,
+        //     ]);
+
+        //     DB::table('schedule_worker')->insert([
+        //         'schedule_id' => Schedule::all()->random()->id,
+        //         'worker_id' => Worker::all()->random()->id,
+        //     ]);
+        // }
     }
 }

@@ -11,17 +11,22 @@ use LaravelJsonApi\Laravel\Facades\JsonApiRoute;
 use LaravelJsonApi\Laravel\Http\Controllers\JsonApiController;
 use LaravelJsonApi\Laravel\Routing\ResourceRegistrar;
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
-Route::apiResource('schedules', ScheduleController::class);
-Route::apiResource('users', UserController::class);
-Route::apiResource('appointments', AppointmentsController::class);
-Route::apiResource('workers', WorkerController::class);
-Route::apiResource('services', ServiceController::class);
-
-// JsonApiRoute::server('v1')->prefix('v1')->resources(function (ResourceRegistrar $server) {
-//     $server->resource('schedules', JsonApiController::class)->readOnly();
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
 // });
+
+// Route::apiResource('schedules', ScheduleController::class);
+// Route::apiResource('users', UserController::class);
+// Route::apiResource('appointments', AppointmentsController::class);
+// Route::apiResource('workers', WorkerController::class);
+// Route::apiResource('services', ServiceController::class);
+
+
+JsonApiRoute::server('v1')->prefix('v1')->resources(function (ResourceRegistrar $server) {
+    $server->resource('appointments', JsonApiController::class)->readOnly();
+    $server->resource('services', JsonApiController::class)->readOnly();
+    $server->resource('schedules', JsonApiController::class)->readOnly();
+    $server->resource('workers', JsonApiController::class)->readOnly();
+    $server->resource('users', JsonApiController::class)->readOnly();
+});
 
