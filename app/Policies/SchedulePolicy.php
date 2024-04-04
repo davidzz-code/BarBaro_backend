@@ -48,6 +48,7 @@ class SchedulePolicy
      */
     public function delete(User $user, Schedule $schedule)
     {
+        return true;
         // return $user && Worker::find($user->worker_id)->role === 'admin';
     }
 
