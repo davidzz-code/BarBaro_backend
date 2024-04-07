@@ -41,6 +41,7 @@ class SchedulePolicy
     public function update(User $user, Schedule $schedule)
     {
         // return $user && Worker::find($user->worker_id)->role === 'admin';
+        return true;
     }
 
     /**
