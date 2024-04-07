@@ -3,83 +3,41 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\JsonApi\V1\Schedules\ScheduleCollectionQuery;
-use App\Models\Schedule;
+use App\JsonApi\V1\Schedules\ScheduleRequest;
 use Illuminate\Http\Request;
-use LaravelJsonApi\Laravel\Http\Controllers\Actions;
+use App\Models\Schedule;
+use LaravelJsonApi\Laravel\Http\Controllers\JsonApiController;
 
 class ScheduleController extends Controller
 {
-
-    use Actions\FetchMany;
-    use Actions\FetchOne;
-    use Actions\Store;
-    use Actions\Update;
-    use Actions\Destroy;
-    use Actions\FetchRelated;
-    use Actions\FetchRelationship;
-    use Actions\UpdateRelationship;
-    use Actions\AttachRelationship;
-    use Actions\DetachRelationship;
-
-
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function store(ScheduleRequest $request)
     {
-        return Schedule::all();
-    }
+        $data = $request->validated();
+        dd($data);
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        $schedule = Schedule::create($request->all());
+
+
+        $schedule = new Schedule();
+        $schedule->date = $data['date'];
+        $schedule->manager_id = $data['relationships.manager.data.id']; // Asignamos el worker_id
+        $schedule->save();
+
 
         return response()->json($schedule, 201);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        $schedule = Schedule::find($id);
+    // public function update(Request $request, Schedule $schedule)
+    // {
+    //     $data = $request->validate([
+    //         'date' => 'required|date',
+    //         'manager_id' => 'required|exists:workers,id',
+    //     ]);
 
-        return response()->json($schedule);
+    //     $schedule->date = $data['date'];
+    //     $schedule->worker_id = $data['manager_id']; // Asignamos el worker_id
+    //     $schedule->save();
 
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        if (!Schedule::where('id', $id)->exists()) {
-            return response()->json(['message' => 'Schedule not found'], 404);
-        } else {
-            $schedule = Schedule::find($id);
-            $schedule->update($request->all());
-
-            return response()->json($schedule);
-
-        }
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        if (!Schedule::where('id', $id)->exists()) {
-            return response()->json(['message' => 'Schedule not found'], 404);
-        } else {
-            $schedule = Schedule::find($id);
-            $schedule->delete();
-
-            return response()->json(['message' => 'Schedule deleted'], 202);
-        }
-    }
+    //     return response()->json($schedule, 200);
+    // }
 }
+

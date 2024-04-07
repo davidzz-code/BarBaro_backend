@@ -33,7 +33,7 @@ class UserSchema extends Schema
         return [
             ID::make(),
             Str::make('name')->sortable(),
-            BelongsTo::make('worker')->type('workers')->readOnly(),
+            BelongsTo::make('worker')->type('workers'),
             Str::make('email')->sortable(),
             DateTime::make('createdAt')->sortable()->readOnly(),
             DateTime::make('updatedAt')->sortable()->readOnly(),

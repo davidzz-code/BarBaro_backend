@@ -1,10 +1,10 @@
 <?php
 
 use App\Http\Controllers\Api\AppointmentsController;
-use App\Http\Controllers\Api\ScheduleController;
 use App\Http\Controllers\Api\ServiceController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\WorkerController;
+use App\Http\Controllers\Api\ScheduleController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use LaravelJsonApi\Laravel\Facades\JsonApiRoute;
@@ -22,10 +22,11 @@ use LaravelJsonApi\Laravel\Routing\ResourceRegistrar;
 // Route::apiResource('services', ServiceController::class);
 
 
-JsonApiRoute::server('v1')->prefix('v1')->resources(function (ResourceRegistrar $server) {
+JsonApiRoute::server('v1')->prefix('v1')->middleware('auth:sanctum')->resources(function (ResourceRegistrar $server) {
     $server->resource('appointments', JsonApiController::class)->readOnly();
     $server->resource('services', JsonApiController::class)->readOnly();
-    $server->resource('schedules', JsonApiController::class);
+    $server->resource('schedules', ScheduleController::class);
+    // $server->resource('schedules', JsonApiController::class);
     $server->resource('workers', JsonApiController::class)->readOnly();
     $server->resource('users', JsonApiController::class)->readOnly();
 });

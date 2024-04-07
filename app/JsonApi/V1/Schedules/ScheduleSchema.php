@@ -31,7 +31,7 @@ class ScheduleSchema extends Schema
     {
         return [
             ID::make(),
-            BelongsToMany::make('manager')->type('workers'),
+            BelongsTo::make('manager')->type('workers'),
             DateTime::make('date')->sortable(),
             DateTime::make('createdAt')->readOnly(),
             DateTime::make('updatedAt')->readOnly(),

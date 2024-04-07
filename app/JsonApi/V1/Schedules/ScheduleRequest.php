@@ -16,8 +16,8 @@ class ScheduleRequest extends ResourceRequest
     public function rules(): array
     {
         return [
-            'manager_id' => JsonApiRule::toMany(),
             'date' => ['required'],
+            // 'manager_id' => JsonApiRule::toMany(),
         ];
     }
 
