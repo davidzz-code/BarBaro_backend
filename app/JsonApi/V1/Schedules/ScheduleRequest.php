@@ -17,7 +17,7 @@ class ScheduleRequest extends ResourceRequest
     {
         return [
             'date' => ['required'],
-            // 'manager_id' => JsonApiRule::toMany(),
+            'manager' => JsonApiRule::toOne('workers'),
         ];
     }
 

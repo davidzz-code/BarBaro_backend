@@ -29,10 +29,6 @@ class Server extends BaseServer
     public function serving(): void
     {
         Auth::shouldUse('sanctum');
-
-        // Schedule::creating(static function (Schedule $schedule): void {
-        //         $schedule->manager()->associate(Auth::user());
-        //     });
     }
 
     /**

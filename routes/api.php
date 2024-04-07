@@ -25,8 +25,8 @@ use LaravelJsonApi\Laravel\Routing\ResourceRegistrar;
 JsonApiRoute::server('v1')->prefix('v1')->middleware('auth:sanctum')->resources(function (ResourceRegistrar $server) {
     $server->resource('appointments', JsonApiController::class)->readOnly();
     $server->resource('services', JsonApiController::class)->readOnly();
-    $server->resource('schedules', ScheduleController::class);
-    // $server->resource('schedules', JsonApiController::class);
+    // $server->post('schedules', JsonApiController::class);
+    $server->resource('schedules', JsonApiController::class);
     $server->resource('workers', JsonApiController::class)->readOnly();
     $server->resource('users', JsonApiController::class)->readOnly();
 });
