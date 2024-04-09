@@ -3,6 +3,8 @@
 namespace App\JsonApi\V1\Services;
 
 use App\Models\Service;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Request;
 use LaravelJsonApi\Eloquent\Contracts\Paginator;
 use LaravelJsonApi\Eloquent\Fields\DateTime;
 use LaravelJsonApi\Eloquent\Fields\ID;
@@ -12,7 +14,6 @@ use LaravelJsonApi\Eloquent\Filters\WhereIdIn;
 use LaravelJsonApi\Eloquent\Pagination\PagePagination;
 use LaravelJsonApi\Eloquent\Schema;
 use LaravelJsonApi\Eloquent\Fields\Str;
-
 class ServiceSchema extends Schema
 {
 
@@ -36,7 +37,7 @@ class ServiceSchema extends Schema
             Str::make('description'),
             Number::make('aproximatedTimeInMin'),
             Number::make('price'),
-            BelongsToMany::make('appointments')->type('appointments'),
+            BelongsToMany::make('appointments'),
             DateTime::make('createdAt')->readOnly(),
             DateTime::make('updatedAt')->readOnly(),
         ];
@@ -63,5 +64,4 @@ class ServiceSchema extends Schema
     {
         return PagePagination::make();
     }
-
 }

@@ -31,7 +31,6 @@ class ServicePolicy
      */
     public function create(User $user)
     {
-
         return true;
     }
 
@@ -40,7 +39,7 @@ class ServicePolicy
      */
     public function update(User $user, Service $service)
     {
-        //
+        return true;
     }
 
     /**
@@ -48,7 +47,7 @@ class ServicePolicy
      */
     public function delete(User $user, Service $service)
     {
-        //
+        return true;
     }
 
     /**

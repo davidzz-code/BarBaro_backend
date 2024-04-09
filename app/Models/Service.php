@@ -24,7 +24,6 @@ class Service extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'price' => 'decimal',
     ];
 
     public function appointments(): BelongsToMany
