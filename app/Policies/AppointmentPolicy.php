@@ -41,6 +41,7 @@ class AppointmentPolicy
     public function update(User $user, Appointment $appointment)
     {
         // return $user && Worker::find($user->worker_id)->role === 'admin';
+        return true;
     }
 
     /**
@@ -49,6 +50,7 @@ class AppointmentPolicy
     public function delete(User $user, Appointment $appointment)
     {
         // return $user && Worker::find($user->worker_id)->role === 'admin';
+        return true;
     }
 
     /**
@@ -57,6 +59,7 @@ class AppointmentPolicy
     public function restore(User $user, Appointment $appointment)
     {
         // return $user && Worker::find($user->worker_id)->role === 'admin';
+        return true;
     }
 
     /**
@@ -65,5 +68,6 @@ class AppointmentPolicy
     public function forceDelete(User $user, Appointment $appointment)
     {
         // return $user && Worker::find($user->worker_id)->role === 'admin';
+        return true;
     }
 }

@@ -27,7 +27,6 @@ class AppointmentFactory extends Factory
             'status' => $this->faker->randomElement($status),
             'date' => $this->faker->date(),
             'start_time' => $this->faker->time(),
-            'end_time' => $this->faker->time(),
             'worker_id' => Worker::factory(),
             'user_id' => User::factory(),
         ];

@@ -7,6 +7,7 @@ use App\JsonApi\V1\Schedules\ScheduleSchema;
 use App\JsonApi\V1\Services\ServiceSchema;
 use App\JsonApi\V1\Users\UserSchema;
 use App\JsonApi\V1\Workers\WorkerSchema;
+use App\Models\Appointment;
 use App\Models\Schedule;
 use Illuminate\Support\Facades\Auth;
 use LaravelJsonApi\Core\Server\Server as BaseServer;
@@ -29,6 +30,10 @@ class Server extends BaseServer
     public function serving(): void
     {
         Auth::shouldUse('sanctum');
+
+        Appointment::creating(function (Appointment $appointment) {
+            $appointment->user()->associate(Auth::user());
+        });
     }
 
     /**

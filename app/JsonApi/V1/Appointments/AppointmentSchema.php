@@ -33,10 +33,9 @@ class AppointmentSchema extends Schema
         return [
             ID::make(),
             Str::make('status')->sortable(),
-            DateTime::make('startTime')->sortable()->readOnly(),
-            DateTime::make('endTime')->readOnly(),
+            DateTime::make('startTime')->sortable(),
             BelongsTo::make('worker')->type('workers'),
-            BelongsTo::make('client')->type('users'),
+            BelongsTo::make('user')->type('users'),
             BelongsToMany::make('services')->type('services'),
             DateTime::make('createdAt')->sortable()->readOnly(),
             DateTime::make('updatedAt')->sortable()->readOnly(),

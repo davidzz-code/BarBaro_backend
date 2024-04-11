@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('status');
             $table->date('date');
             $table->time('start_time');
-            $table->time('end_time');
             $table->foreignId('worker_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();

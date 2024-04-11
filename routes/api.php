@@ -23,7 +23,12 @@ use LaravelJsonApi\Laravel\Routing\ResourceRegistrar;
 
 
 JsonApiRoute::server('v1')->prefix('v1')->resources(function (ResourceRegistrar $server) {
-    $server->resource('appointments', JsonApiController::class)->readOnly();
+    $server->resource('appointments', JsonApiController::class)
+        ->relationships(function ($relations) {
+            $relations->hasOne('user');
+            $relations->hasOne('worker');
+            $relations->hasMany('services');
+        });
     $server->resource('services', JsonApiController::class);
     $server->resource('schedules', JsonApiController::class);
     $server->resource('workers', JsonApiController::class)->readOnly();

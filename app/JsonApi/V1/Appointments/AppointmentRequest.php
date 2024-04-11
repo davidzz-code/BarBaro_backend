@@ -17,7 +17,11 @@ class AppointmentRequest extends ResourceRequest
     public function rules(): array
     {
         return [
-            // @TODO
+            'status' => ['required', Rule::in(['pending', 'confirmed', 'cancelled'])],
+            'date' => ['required', 'date_format:d/m/Y'],
+            'startTime' => ['required', 'date_format:"H:i"'],
+            'worker' => JsonApiRule::toOne('workers'),
+            'services' => JsonApiRule::toMany(),
         ];
     }
 
