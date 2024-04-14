@@ -41,6 +41,7 @@ class WorkerPolicy
     public function update(User $user, Worker $worker)
     {
         // return $user && Worker::find($user->worker_id)->role === 'admin';
+        return true;
     }
 
     /**
@@ -49,6 +50,7 @@ class WorkerPolicy
     public function delete(User $user, Worker $worker)
     {
         // return $user && Worker::find($user->worker_id)->role === 'admin';
+        return true;
     }
 
     /**
@@ -57,6 +59,7 @@ class WorkerPolicy
     public function restore(User $user, Worker $worker)
     {
         // return $user && Worker::find($user->worker_id)->role === 'admin';
+        return true;
     }
 
     /**
@@ -65,5 +68,6 @@ class WorkerPolicy
     public function forceDelete(User $user, Worker $worker)
     {
         // return $user && Worker::find($user->worker_id)->role === 'admin';
+        return true;
     }
 }
