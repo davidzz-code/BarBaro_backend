@@ -35,8 +35,8 @@ class WorkerSchema extends Schema
             ID::make(),
             Str::make('role'),
             Number::make('hours'),
-            HasMany::make('appointment')->type('appointments'),
-            BelongsToMany::make('schedule')->type('schedules'),
+            HasMany::make('appointments')->type('appointments'),
+            BelongsToMany::make('schedules')->type('schedules'),
             DateTime::make('createdAt')->readOnly(),
             DateTime::make('updatedAt')->readOnly(),
         ];
