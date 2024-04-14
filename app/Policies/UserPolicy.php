@@ -40,6 +40,7 @@ class UserPolicy
     public function update(User $user)
     {
         // return $user && Worker::find($user->worker_id)->role === 'admin';
+        return true;
     }
 
     /**
@@ -48,6 +49,7 @@ class UserPolicy
     public function delete(User $user)
     {
         // return $user && Worker::find($user->worker_id)->role === 'admin';
+        return true;
     }
 
     /**
