@@ -31,11 +31,11 @@ class Server extends BaseServer
     {
         Auth::shouldUse('sanctum');
 
-//        Appointment::creating(function (Appointment $appointment) {
-//            if(Auth::user() == null){
-//                $appointment->user_id = Au;
-//            }
-//        });
+        Appointment::creating(function (Appointment $appointment) {
+            if ($appointment->user() === null) {
+                $appointment->user()->associate(Auth::user());
+            }
+        });
     }
 
     /**
