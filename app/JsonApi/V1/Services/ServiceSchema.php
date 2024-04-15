@@ -35,7 +35,7 @@ class ServiceSchema extends Schema
             ID::make(),
             Str::make('name'),
             Str::make('description'),
-            Number::make('aproximatedTimeInMin'),
+            Number::make('approximateDurationMin'),
             Number::make('price'),
             BelongsToMany::make('appointments'),
             DateTime::make('createdAt')->readOnly(),

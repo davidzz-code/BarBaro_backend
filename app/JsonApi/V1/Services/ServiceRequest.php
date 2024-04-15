@@ -19,6 +19,8 @@ class ServiceRequest extends ResourceRequest
             'name' => ['required'],
             'price' => ['required'],
             'appointments' => JsonApiRule::toMany(),
+            'approximateDurationMin' => ['integer'],
+            'description' => ['required'],
         ];
     }
 }
