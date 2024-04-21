@@ -44,15 +44,4 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Worker::class)->withDefault();
     }
-
-    /**
-     * Set the user's password.
-     *
-     * @param  string  $value
-     * @return void
-     */
-    public function setPasswordAttribute($value)
-    {
-        $this->attributes['password'] = Hash::make($value);
-    }
 }
