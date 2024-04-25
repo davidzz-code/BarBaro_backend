@@ -36,7 +36,7 @@ JsonApiRoute::server('v1')->prefix('v1')->resources(function (ResourceRegistrar 
 
     $server->resource('schedules', JsonApiController::class)
         ->relationships(function ($relations) {
-            $relations->hasOne('worker');
+            $relations->hasOne('manager');
         });
 
     $server->resource('workers', JsonApiController::class)
