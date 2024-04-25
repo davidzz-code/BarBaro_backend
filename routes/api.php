@@ -47,7 +47,7 @@ JsonApiRoute::server('v1')->prefix('v1')->resources(function (ResourceRegistrar 
 
     $server->resource('users', JsonApiController::class)
         ->relationships(function ($relations) {
-            $relations->hasMany('appointments');
+            $relations->hasOne('worker');
         });
 });
 
