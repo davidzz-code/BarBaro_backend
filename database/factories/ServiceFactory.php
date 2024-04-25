@@ -33,8 +33,8 @@ class ServiceFactory extends Factory
         $serviceDescription = $services[$serviceName];
 
         return [
-            'name' => $this->faker->word(),
-            'description' => $this->faker->paragraph(),
+            'name' => $serviceName,
+            'description' => $serviceDescription,
             'approximate_duration_min' => $this->faker->numberBetween(0, 120),
             'price' => $this->faker->randomFloat(2, 0, 200),
         ];

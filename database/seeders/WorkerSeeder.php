@@ -12,10 +12,13 @@ class WorkerSeeder extends Seeder
      */
     public function run(): void
     {
-        Worker::create([
-            'id' => 1,
-            'role' => 'admin',
-            'hours' => 40
-        ]);
+        //WARNING: Esto da error cuando haces un seeder,
+        // es mejor si cambias un worker a admin en la base de datos
+
+//        Worker::create([
+//            'id' => 1,
+//            'role' => 'admin',
+//            'hours' => 40
+//        ]);
     }
 }
