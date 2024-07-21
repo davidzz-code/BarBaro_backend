@@ -70,4 +70,8 @@ class AppointmentPolicy
         // return $user && Worker::find($user->worker_id)->role === 'admin';
         return true;
     }
+
+    public function viewServices(User $user, Appointment $appointment){
+        return true;
+    }
 }

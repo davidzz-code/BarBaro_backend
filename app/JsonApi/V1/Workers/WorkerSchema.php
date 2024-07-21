@@ -36,7 +36,6 @@ class WorkerSchema extends Schema
             Str::make('role'),
             Number::make('hours'),
             HasMany::make('appointments')->type('appointments'),
-            BelongsToMany::make('schedules')->type('schedules'),
             DateTime::make('createdAt')->readOnly(),
             DateTime::make('updatedAt')->readOnly(),
         ];
@@ -63,5 +62,6 @@ class WorkerSchema extends Schema
     {
         return PagePagination::make();
     }
+
 
 }

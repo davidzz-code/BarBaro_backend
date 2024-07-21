@@ -14,13 +14,6 @@ models:
     hours: int
     relationships:
       hasMany: Appointment, User
-      belongsToMany: Schedule
-
-  Schedule:
-    manager_id: id foreign:workers
-    date: date
-    relationships:
-      belongsToMany: Worker
 
   Service:
     name: string

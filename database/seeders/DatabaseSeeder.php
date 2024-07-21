@@ -5,7 +5,6 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\Appointment;
-use App\Models\Schedule;
 use App\Models\Service;
 use App\Models\Worker;
 use Illuminate\Database\Seeder;
@@ -19,7 +18,6 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         Service::factory(3)->create();
-        Schedule::factory(3)->create();
         Appointment::factory(3)->create();
 
         $this->call([
@@ -34,11 +32,6 @@ class DatabaseSeeder extends Seeder
         //     DB::table('appointment_service')->insert([
         //         'appointment_id' => Appointment::all()->random()->id,
         //         'service_id' => Service::all()->random()->id,
-        //     ]);
-
-        //     DB::table('schedule_worker')->insert([
-        //         'schedule_id' => Schedule::all()->random()->id,
-        //         'worker_id' => Worker::all()->random()->id,
         //     ]);
         // }
     }

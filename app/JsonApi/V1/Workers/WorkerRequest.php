@@ -20,7 +20,6 @@ class WorkerRequest extends ResourceRequest
             'role' => ['required'],
             'hours' => ['required'],
             'appointments' => JsonApiRule::toMany(),
-            'schedule' => JsonApiRule::toMany(),
         ];
     }
 

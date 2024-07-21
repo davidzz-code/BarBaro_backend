@@ -42,6 +42,6 @@ class User extends Authenticatable
 
     public function worker(): BelongsTo
     {
-        return $this->belongsTo(Worker::class)->withDefault();
+        return $this->belongsTo(Worker::class);
     }
 }

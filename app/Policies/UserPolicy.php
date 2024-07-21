@@ -67,4 +67,9 @@ class UserPolicy
     {
         // return $user && Worker::find($user->worker_id)->role === 'admin';
     }
+
+    public function viewWorker(User $user): bool
+    {
+        return true;
+    }
 }

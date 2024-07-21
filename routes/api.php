@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use LaravelJsonApi\Laravel\Facades\JsonApiRoute;
@@ -34,15 +35,9 @@ JsonApiRoute::server('v1')->prefix('v1')->resources(function (ResourceRegistrar 
             $relations->hasMany('appointments');
         });
 
-    $server->resource('schedules', JsonApiController::class)
-        ->relationships(function ($relations) {
-            $relations->hasOne('manager');
-        });
-
     $server->resource('workers', JsonApiController::class)
         ->relationships(function ($relations) {
             $relations->hasMany('appointments');
-            $relations->hasMany('schedules');
         });
 
     $server->resource('users', JsonApiController::class)

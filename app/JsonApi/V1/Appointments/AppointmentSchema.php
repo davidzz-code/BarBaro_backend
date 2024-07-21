@@ -34,7 +34,7 @@ class AppointmentSchema extends Schema
         return [
             ID::make(),
             Str::make('status')->sortable(),
-            Number::make('startTime')->sortable(),
+            Str::make('startTime')->sortable(),
             DateTime::make('date')->sortable(),
             BelongsTo::make('worker')->type('workers'),
             BelongsTo::make('user')->type('users'),

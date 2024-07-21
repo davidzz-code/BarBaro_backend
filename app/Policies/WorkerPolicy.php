@@ -70,4 +70,10 @@ class WorkerPolicy
         // return $user && Worker::find($user->worker_id)->role === 'admin';
         return true;
     }
+
+    public function viewAppointments(User $user, Worker $worker)
+    {
+        // return $user && Worker::find($user->worker_id)->role === 'admin';
+        return true;
+    }
 }
